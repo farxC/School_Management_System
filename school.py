@@ -17,7 +17,6 @@
     
     - Utilizar SQLITE
 """
-from person import Person
 
 class School:
     def __init__(self, users, classes, subjects):
@@ -29,11 +28,4 @@ class School:
          user_details = "\n".join(str(user) for user in self.users)
          return f"{user_details}"
     
- 
-me = Person("Rafael", "Teacher", "Rua tal", "1212121", "masc", "12/01/1999", '','')
-someone = Person("IDK", "Teacher", "Rua tal", "121445121", "fem", "12/01/1999", '','')
 
-
-school = School((me, someone), ["TADS 1"], "Alg")
-print(school)
-    
