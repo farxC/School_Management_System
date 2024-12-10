@@ -1,6 +1,7 @@
 from school import School
 from person import me, Person
 from hours import Hours
+from uuid import uuid5
 
 class Discipline:
     def __init__(self, name: str, code: int, workload: Hours, teacher: Person):
@@ -14,4 +15,4 @@ class Discipline:
 
 if me.isTeacher():
     alg = Discipline("Algoritmos", 1, Hours(80),me)
-print(alg)
+print(dir(alg))

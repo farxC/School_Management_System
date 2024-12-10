@@ -22,8 +22,9 @@ def isValidRole(role: str) -> bool:
     return True if role in ALLOWED_ROLES else False
 
 class Person: 
-        def __init__(self, name: str, type: Allowed_Roles, address: str, registration: str, sex: Sex_Options , birth_date: str, telephone: str, email: str):
+        def __init__(self, name: str, grade: str, type: Allowed_Roles, address: str, registration: str, sex: Sex_Options , birth_date: str, telephone: str, email: str):
             self.name = name
+            self.grade = grade
             self.type = type.lower()
             self.address = address
             self.registration = registration
