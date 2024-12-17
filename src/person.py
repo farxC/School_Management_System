@@ -1,6 +1,7 @@
 from typing import Literal
-import database.insert_person
-print (database)
+from database.insert import registerToTable
+
+
 
 """
     Usuários:
@@ -23,9 +24,8 @@ def isValidRole(role: str) -> bool:
     return True if role in ALLOWED_ROLES else False
 
 class Person: 
-        def __init__(self, name: str, grade: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options , birth_date: str, telephone: str, email: str):
+        def __init__(self, name: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options , birth_date: str, telephone: str, email: str):
             self.name = name
-            self.grade = grade
             self.role = role.lower()
             self.address = address
             self.id = id
@@ -35,12 +35,8 @@ class Person:
             self.email = email
         
         def __str__(self):
-            return f"{self.name}" 
-             
-            
-        def registerPerson(self):
-            registerToDatabase(self)
-
+            return f"{self.name}, {self.id}" 
+        
         def isTeacher(self):
             if isValidRole(self.role):
                  if self.role == "teacher":
@@ -48,8 +44,23 @@ class Person:
                  return False
             else:
                 return f"Not a valid role, {ALLOWED_ROLES}"    
+             
+        def register(self):
+            res = registerToTable(self, "persons")
+            print(res)
+
+            if(self.isTeacher()):
+                registerToTable(self, "teachers")
+                print("Registered as teacher")
+            
+
+        
                  
                 
-    
-me = Person("'Rafael'","'TADS 1'","'teacher'", "'Rua tal'", "'1212121'", "'masc'", "'12/01/1999'", "'(67)11111111'", "'meuemail@email.com'")
-me.registerPerson()
+
+# me = Person("'Rafael'","'teacher'", "'Rua tal'", "'1212121'", "'masc'", "'12/01/1999'", "'(67)11111111'", "'meuemail@email.com'")
+
+# me.register()
+
+othera = Person("Cristiano Ronalde", "teacher", "Portugal", "14", "masc", "10/10/1900", "(11)111111", "email")
+othera.register()

@@ -1,6 +1,6 @@
-from connection import connect
+from database.connection import connection
 # Create one cursor.
-def cursor():
-    conn = connect()
-    cursor = conn.cursor()
-    return cursor
+
+conn = connection
+cursor = conn.cursor()
+

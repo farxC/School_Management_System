@@ -1,9 +1,9 @@
-from connection import connection
-from cursor import cursor
+from database.connection import connect
+from database.cursor import cursor
 
 def createTables():
-    conn = connection()
-    cursor = cursor()
+    conn = connect()
+    
     # Init the persons table
     cursor.execute("""
                 CREATE TABLE IF NOT EXISTS persons(
@@ -86,8 +86,9 @@ def createTables():
             )
         """)
 
-
-
     print("Tables created")
     conn.commit()
     conn.close()
+
+if __name__ == "__main__":
+    createTables()
