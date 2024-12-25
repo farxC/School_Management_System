@@ -15,4 +15,3 @@ class Discipline:
 
 if me.isTeacher():
     alg = Discipline("Algoritmos", 1, Hours(80),me)
-print(dir(alg))

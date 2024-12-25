@@ -1,5 +1,5 @@
 from src.school import School
-class Class(School):
+class Class:
     def __init__(self, name, subjects, teachers , students, code ):
         self.name = name
         self.subjects = subjects

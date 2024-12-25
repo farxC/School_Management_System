@@ -54,7 +54,11 @@ class Person:
                 print("Registered as teacher")
             
 
+class Teacher(Person):
+    def __init__(self):
+        super().__init__
         
+
                  
                 
 
