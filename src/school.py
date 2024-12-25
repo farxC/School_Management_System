@@ -19,7 +19,8 @@
 """
 
 class School:
-    def __init__(self, users, classes, subjects):
+    def __init__(self,name, users=[""], classes=[""], subjects=[""]):
+        self.name = name
         self.users = users
         self.classes = classes
         self.subjects = subjects
