@@ -1,8 +1,6 @@
-from src.models.school import School
-from src.models.person import me, Person
 from src.models.hours import Hours
 from uuid import uuid5
-from database.insert import insert
+from src.database.insert import insert
 
 
 class Subject:

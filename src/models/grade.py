@@ -1,4 +1,10 @@
 from src.database.insert import insert
+from typing import Protocol
+
+class ClassProtocol(Protocol):
+    name: str
+    id: str
+    year: str
 
 class Class:
     def __init__(self, name, id ,year,subjects, teacher , students):
@@ -17,4 +23,3 @@ class Class:
       return self.id
     
 
-alg = Class("TADS 1", 1, 1900,"Alg",["Beto", "Vlad", "Huilton", "Kader"], ["Eu"])

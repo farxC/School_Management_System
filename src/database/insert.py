@@ -3,11 +3,10 @@ from src.database.cursor import cursor
 from sqlite3 import Error
 
 
-def insert(self, table: str):
+def insert(obj, table: str):
             # Here is a object that each key represents an entity on database and each value
             # represents an array with the SQL statement and the values to insert.
-            attributes = vars(self)
-            
+            attributes = vars(obj)
             tables = {
                     "persons":[
                             "INSERT INTO persons (id, name, birth_date, type, sex, address, telephone, email) VALUES(?,?,?,?,?,?,?,?)",
@@ -44,10 +43,9 @@ def insert(self, table: str):
                
                 # Data to database 
                 data = tables[table][1](attributes)
-                print(data)
                 cursor.execute(exec, data)
                 connection.commit()
-                print("Registered on database.")
+                return "Registered on database."
             
             except Error as e:
                     connection.rollback()
