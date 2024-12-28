@@ -1,4 +1,8 @@
-from src.school import School
+from src.models.school import School
+from src.models.person import Person, Teacher, Student
+from src.models.subject import Subject
+from src.models.grade import Class
+
 """
 - Crie um sistema escolar que permita cadastrar alunos, professores, disciplinas e turmas.
     Usuários:
@@ -43,10 +47,6 @@ if __name__ == "__main__":
   ╚═══════════════════════════════════════════════════════════╝
   """
 
-    print(terminal)
-
-  
-
     choice = int(input("Insert the option: "))
 
     def evaluateChoice(choice: int):
@@ -61,3 +61,10 @@ if __name__ == "__main__":
             8: "",
             9: "",
         }
+
+    while choice < 9:
+        evaluateChoice(choice)
+
+    
+
+   

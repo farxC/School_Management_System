@@ -1,3 +1,4 @@
+from src.database.insert import insert
 
 class Class:
     def __init__(self, name, id ,year,subjects, teacher , students):
@@ -7,6 +8,10 @@ class Class:
         self.subjects = subjects
         self.teacher = teacher
         self.students = students
+        self.registerGrade()
+    
+    def registerGrade(self):
+        insert(self, "classes")
 
     def __int__(self):
       return self.id

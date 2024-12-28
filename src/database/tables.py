@@ -1,8 +1,8 @@
-from database.connection import connect
-from database.cursor import cursor
+from src.database.connection import connection
+from src.database.cursor import cursor
 
 def createTables():
-    conn = connect()
+    conn = connection
     
     # Init the persons table
     cursor.execute("""

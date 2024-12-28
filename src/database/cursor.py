@@ -1,4 +1,4 @@
-from database.connection import connection
+from src.database.connection import connection
 # Create one cursor.
 
 conn = connection

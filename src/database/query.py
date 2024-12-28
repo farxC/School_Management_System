@@ -1,5 +1,5 @@
-from database.connection import connection
-from database.cursor import cursor
+from src.database.connection import connection
+from src.database.cursor import cursor
 
 
 
@@ -12,7 +12,7 @@ def fetchData(key: str):
     }
 
 #Inner join that select where person.id = teachers.id (Foreign key).
-query ="SELECT * FROM persons p INNER JOIN teachers t ON p.id = t.id "
+query ="SELECT * FROM persons as p INNER JOIN teachers as t ON p.id = t.id"
 
 
 cursor.execute(query)
