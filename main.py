@@ -2,6 +2,8 @@ from src.models.school import School
 from src.models.person import Person, Teacher, Student
 from src.models.subject import Subject
 from src.models.grade import Class
+from controllers.personController import createPerson
+from uuid import uuid5
 
 """
 - Crie um sistema escolar que permita cadastrar alunos, professores, disciplinas e turmas.
@@ -49,9 +51,22 @@ if __name__ == "__main__":
 
     choice = int(input("Insert the option: "))
 
+    def requireData():
+        name = input("Insert the name here: ")
+        role = input("What's the role? Teacher or Student?: ")
+        address = input("Please inform the complete address: ")
+        # id = to do..
+        sex = input("Insert the gender: ")
+        birth_date = input("What day exactly is the person's birth date?: ")
+        telephone = input("Inform the telephone here: ")
+        email = input("And so.. inform the email (it's the last, I promise): ")
+        
+        
+    
+    
     def evaluateChoice(choice: int):
         operations= {
-            1: "",
+            1: createPerson(),
             2: "",
             3: "",
             4: "",
@@ -62,7 +77,7 @@ if __name__ == "__main__":
             9: "",
         }
 
-    while choice < 9:
+    while choice != 9:
         evaluateChoice(choice)
 
     
