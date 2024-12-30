@@ -44,33 +44,33 @@ class Person:
             self.telephone = telephone
             self.email = email
             # Insert as default to the database.
-            res = self.registerAsPerson()
-            print(res)
+            self.save()
+            
         
-        def registerAsPerson(self):
+        def save(self):
            q = insert(self,"persons")
-           return q
+           print(q)
         
 class Teacher(Person):
-    def __init__(self, name: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options, birth_date: str, telephone: str, email: str, subject_id: int):
+    def __init__(self, name: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options, birth_date: str, telephone: str, email: str, subject_id = None):
         super().__init__(name, role, address, id, sex, birth_date, telephone, email)
         self.subject_id = subject_id
         # Insert as default to the database.
-        res = self.registerAsTeacher()
+        res = self.save()
         print(res)
         
-    def registerAsTeacher(self):
+    def save(self):
        insert(self, "teachers")
         
 
 class Student(Person):
-    def __init__(self,name,role, address, id, sex, birth_date, telephone, email , class_id: int):
+    def __init__(self,name,role, address, id, sex, birth_date, telephone, email , class_id = None):
         super().__init__(name,role,address, id, sex, birth_date, telephone, email)
         self.class_id = class_id
-        res = self.registerAsStudent()
+        res = self.save()
         print(res)
        
-    def registerAsStudent(self):
+    def save(self):
        insert(self, "students")
        
     

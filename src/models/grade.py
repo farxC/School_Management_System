@@ -7,19 +7,25 @@ class ClassProtocol(Protocol):
     year: str
 
 class Class:
-    def __init__(self, name, id ,year,subjects, teacher , students):
+    def __init__(self, name, id ,year):
         self.name = name
         self.id = id
         self.year = year
-        self.subjects = subjects
-        self.teacher = teacher
-        self.students = students
         self.registerGrade()
     
     def registerGrade(self):
-        insert(self, "classes")
-
+       q = insert(self, "classes")
+       print(q)
+       
     def __int__(self):
       return self.id
     
 
+class ClassStudent:
+    def __init__(self, student_id, class_id):
+        self.student_id = student_id
+        self.class_id = class_id
+        self.save()
+        
+    def save(self):
+        insert(self, "classStudents") 
