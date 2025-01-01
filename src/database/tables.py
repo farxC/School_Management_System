@@ -13,7 +13,7 @@ def createTables():
                         type TEXT NOT NULL,
                         sex TEXT,
                         address TEXT,
-                        telephone INT,
+                        telephone TEXT,
                         email TEXT                  
                     )        
         """)

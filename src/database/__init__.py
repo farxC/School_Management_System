@@ -1,1 +1,1 @@
-print(f"Invoking __init__.py for {__name__}")
+print(f"Doing operation in database..")

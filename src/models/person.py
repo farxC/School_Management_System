@@ -15,11 +15,6 @@ import uuid
 
 Allowed_Roles = Literal["teacher", "student"]
 Sex_Options = Literal["masc", "fem"]
-ALLOWED_ROLES = {"teacher", "student"}
-
-def isValidRole(role: str) -> bool:
-    return True if role in ALLOWED_ROLES else False
-
 
 # Defines the interface (shape) of the Person attributes
 class PersonProtocol(Protocol):
@@ -55,25 +50,18 @@ class Teacher(Person):
     def __init__(self, name: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options, birth_date: str, telephone: str, email: str, subject_id = None):
         super().__init__(name, role, address, id, sex, birth_date, telephone, email)
         self.subject_id = subject_id
-        # Insert as default to the database.
-        res = self.save()
-        print(res)
+        self.save_teacher()
         
-    def save(self):
-       insert(self, "teachers")
         
+    def save_teacher(self): 
+       q =insert(self, "teachers")
+       print(q)
 
 class Student(Person):
     def __init__(self,name,role, address, id, sex, birth_date, telephone, email , class_id = None):
         super().__init__(name,role,address, id, sex, birth_date, telephone, email)
         self.class_id = class_id
-        res = self.save()
-        print(res)
+        self.save_student()
        
-    def save(self):
-       insert(self, "students")
-       
-    
-  
-
-
+    def save_student(self):
+      q = insert(self, "students")

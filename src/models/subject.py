@@ -1,5 +1,4 @@
 from src.models.hours import Hours
-from uuid import uuid5
 from src.database.insert import insert
 from typing import Protocol
 
@@ -20,7 +19,4 @@ class Subject:
     def registerSubject(self):
         q = insert(self,"subjects")
         print(q)
-     
-    def __str__(self):
-        return f"{self.name} has the teacher {self.teacher}"    
-
+       

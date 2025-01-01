@@ -21,11 +21,19 @@ class Class:
       return self.id
     
 
-class ClassStudent:
-    def __init__(self, student_id, class_id):
-        self.student_id = student_id
+class assignClass:
+    def __init__(self, person_id, class_id, role):
+        self.person_id = person_id
         self.class_id = class_id
+        self.role = role
         self.save()
         
     def save(self):
-        insert(self, "classStudents") 
+        tables = {
+            "teacher" : "classTeachers",
+            "student" : "classStudents" 
+        }
+        where = tables[self.role]
+        q = insert(self, where) 
+        print(q)
+        
