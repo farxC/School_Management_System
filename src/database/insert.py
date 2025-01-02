@@ -28,6 +28,10 @@ def insert(obj, table: str):
                 "classes": [
                         "INSERT INTO classes(id, name, year) VALUES (?, ?, ?)",
                         lambda obj: (obj["id"], obj["name"], obj["year"])],
+                "classSubjects":[
+                        "INSERT INTO classSubjects(class_id, subject_id) VALUES (?, ?, ?)",
+                        lambda obj: (obj["class_id"], obj["subject_id"])        
+                ],
                 "classTeachers": [
                         "INSERT INTO classTeachers(class_id, teacher_id) VALUES(?, ?)",
                         lambda obj: (obj["class_id"], obj["person_id"])],
@@ -43,6 +47,7 @@ def insert(obj, table: str):
         try:
                 # SQL statement to handle the operation
                 execute = tables[table][0]   
+                
                 # Data to database 
                 data = tables[table][1](attributes)
                 

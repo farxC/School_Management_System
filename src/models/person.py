@@ -39,10 +39,10 @@ class Person:
             self.telephone = telephone
             self.email = email
             # Insert as default to the database.
-            self.save()
+            self.__save()
             
         
-        def save(self):
+        def __save(self):
            q = insert(self,"persons")
            print(q)
         
@@ -50,10 +50,10 @@ class Teacher(Person):
     def __init__(self, name: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options, birth_date: str, telephone: str, email: str, subject_id = None):
         super().__init__(name, role, address, id, sex, birth_date, telephone, email)
         self.subject_id = subject_id
-        self.save_teacher()
+        self.__save_teacher()
         
         
-    def save_teacher(self): 
+    def __save_teacher(self): 
        q =insert(self, "teachers")
        print(q)
 
@@ -61,7 +61,7 @@ class Student(Person):
     def __init__(self,name,role, address, id, sex, birth_date, telephone, email , class_id = None):
         super().__init__(name,role,address, id, sex, birth_date, telephone, email)
         self.class_id = class_id
-        self.save_student()
+        self.__save_student()
        
-    def save_student(self):
+    def __save_student(self):
       q = insert(self, "students")

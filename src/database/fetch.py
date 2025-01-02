@@ -31,7 +31,7 @@ def fetchData(key: str, value=None):
             for item in res:
                 print(item)
             
-            return 
+            return "Query was successful!"
         except Exception as e:
             return "An error has occurred fetching keys: ", e
 

@@ -14,26 +14,26 @@ class Class:
         self.registerGrade()
     
     def registerGrade(self):
-       q = insert(self, "classes")
-       print(q)
+       query = insert(self, "classes")
+       print(query)
        
     def __int__(self):
       return self.id
     
 
-class assignClass:
+class PersonAssignClass:
     def __init__(self, person_id, class_id, role):
         self.person_id = person_id
         self.class_id = class_id
         self.role = role
-        self.save()
+        self.__save()
         
-    def save(self):
+    def __save(self):
         tables = {
             "teacher" : "classTeachers",
             "student" : "classStudents" 
         }
         where = tables[self.role]
-        q = insert(self, where) 
-        print(q)
+        query = insert(self, where) 
+        print(query)
         

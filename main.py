@@ -1,6 +1,4 @@
 from src.models.school import School
-from src.database.fetch import fetchData
-
 """
 - Crie um sistema escolar que permita cadastrar alunos, professores, disciplinas e turmas.
     Usuários:
@@ -20,7 +18,7 @@ from src.database.fetch import fetchData
 
 
 def isOption(choice):
-    if   0 < choice < 12:
+    if   0 < choice < 11:
         return True
     return False
     
@@ -30,19 +28,18 @@ def evalOperation(school: School, choice: int):
         1: lambda: school.createPerson(),
         2: lambda: school.createClass(),
         3: lambda: school.createSubject(),
-        4: lambda: school.assignClass(),
-        5: lambda: fetchData("get_all_persons"), 
-        6: lambda: fetchData("get_classes"),
-        7: lambda: fetchData("get_subjects"),
-        # Refatorar essa parte para que NÃO fique hardcoded os values..
-        8: lambda: fetchData("get_students_in_class","C6"),
-        9: lambda: fetchData("get_teachers_in_class", "C7")
+        4: lambda: school.assignPersonClass(),
+        5: lambda: school.assignSubjectClass(),
+        6: lambda: school.search("get_all_persons"), 
+        7: lambda: school.search("get_classes"),
+        8: lambda: school.search("get_subjects"),
+        9: lambda: school.search("get_students_in_class", True),
+        10: lambda: school.search("get_teachers_in_class", True)
     }
-
-    if(isOption(choice)):
-        if choice < 11:
-            operations[choice]()
-            return True
+    res = isOption(choice)
+    if res:
+        operations[choice]()
+        return True
 
 
 
@@ -59,12 +56,13 @@ def terminal(school: School):
   ║   2. Insert Class                                         ║
   ║   3. Insert Subject                                       ║
   ║   4. Assign Person to Class                               ║
-  ║   5. List Persons                                         ║
-  ║   6. List Classes                                         ║
-  ║   7. List Subjects                                        ║
-  ║   8. Filter Students by Class                             ║
-  ║   9. Filter Teachers by Subject                           ║
-  ║   10. Exit                                                ║
+  ║   5. Assign Subject to Class                              ║
+  ║   6. List Persons                                         ║
+  ║   7. List Classes                                         ║
+  ║   8. List Subjects                                        ║
+  ║   9. Filter Students by Class                             ║
+  ║   10. Filter Teachers by Class                            ║
+  ║                                                           ║
   ╠═══════════════════════════════════════════════════════════╣
   ║           Use the number keys to select an option!        ║
   ╚═══════════════════════════════════════════════════════════╝
@@ -74,7 +72,7 @@ def terminal(school: School):
     proceed = evalOperation(school , choice)
     
     # Recursively call the terminal..
-    if proceed:
+    while proceed:
         terminal(school)
     
     return

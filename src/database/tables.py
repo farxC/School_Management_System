@@ -75,16 +75,26 @@ def createTables():
                     )
             """)
 
-        # Table for students of each Class
+        # Table for Students of each Class
         cursor.execute("""
                 CREATE TABLE IF NOT EXISTS classStudents(
                     class_id varchar(255) NOT NULL,
-                    student_id varchar(255) NULL,
+                    student_id varchar(255) NOT NULL,
                     PRIMARY KEY (class_id, student_id),
                     FOREIGN KEY (class_id) REFERENCES classes(id),
                     FOREIGN KEY (student_id) REFERENCES students(id)      
                 )
             """)
+        # Table for Subjects of each Class
+        cursor.execute(""""
+                CREATE TABLE IF NOT EXISTS classSubjects(
+                   class_id varchar(255) NOT NULL
+                   subject_id varchar(255) NOT NULL,
+                   PRIMARY KEY(class_id, subject_id),
+                   FOREIGN KEY (class_id) REFERENCES classes(id),
+                   FOREIGN KEY (subject_id) REFERENCES subject(id)
+                )       
+             """)
 
         print("Tables created")
         conn.commit()
@@ -94,3 +104,4 @@ def createTables():
 
 if __name__ == "__main__":
     createTables()
+    
