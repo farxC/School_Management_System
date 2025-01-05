@@ -1,7 +1,7 @@
 from src.models.hours import Hours
 from random import randint
 from src.models.person import Student, Teacher
-from src.models.subject import Subject, SubjectAssingClass
+from src.models.subject import Subject, SubjectAssignClass
 from src.models.grade import Class, PersonAssignClass
 from src.database.fetch import fetchData
 from typing import Literal
@@ -65,7 +65,7 @@ class School:
         s_id = input("Please insert the subject ID: ").upper()
         c_id = input("Please insert the class ID: ").upper()
         
-        return SubjectAssingClass(s_id, c_id)
+        return SubjectAssignClass(s_id, c_id)
         
     
     def search(self, key: __FETCH_KEYS_OPTIONS, classID = False):

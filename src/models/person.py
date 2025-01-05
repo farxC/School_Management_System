@@ -38,6 +38,7 @@ class Person:
             self.birth_date = birth_date
             self.telephone = telephone
             self.email = email
+            # TO DO -> CREATE A DEFAULT METHOD IN ALL CLASSES USED IN THIS PROJECT. IS IT POSSIBLE?
             # Insert as default to the database.
             self.__save()
             

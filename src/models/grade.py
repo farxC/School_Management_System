@@ -11,9 +11,9 @@ class Class:
         self.name = name
         self.id = id
         self.year = year
-        self.registerGrade()
+        self.__save()
     
-    def registerGrade(self):
+    def __save(self):
        query = insert(self, "classes")
        print(query)
        
