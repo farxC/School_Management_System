@@ -1,5 +1,4 @@
 from src.models.hours import Hours
-from src.database.insert import insert
 from typing import Protocol
 
 # Class for typing Subjects

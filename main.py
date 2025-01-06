@@ -1,4 +1,6 @@
 from src.models.school import School
+from flask import Flask
+
 """
 - Crie um sistema escolar que permita cadastrar alunos, professores, disciplinas e turmas.
     Usuários:
@@ -16,73 +18,22 @@ from src.models.school import School
     - O sistema deve permitir a filtragem de professores por disciplina.
 """
 
+app = Flask(__name__)
 
-def isOption(choice):
-    if   0 < choice > 10:
-        return False
+@app.route("/")
+def index():
+        return "<h1>School System</h1"
+
+@app.route('/hello')
+def hello():
+    return "Hello, world"
     
-    return True
-    
 
-def evalOperation(school: School, choice: int):
-    operations = {
-        1: lambda: school.createPerson(),
-        2: lambda: school.createClass(),
-        3: lambda: school.createSubject(),
-        4: lambda: school.assignPersonClass(),
-        5: lambda: school.assignSubjectClass(),
-        6: lambda: school.search("get_all_persons"), 
-        7: lambda: school.search("get_classes"),
-        8: lambda: school.search("get_subjects"),
-        9: lambda: school.search("get_students_in_class", True),
-        10: lambda: school.search("get_teachers_in_class", True)
-    }
-    res = isOption(choice)
-    if res:
-        operations[choice]()
-        return True
-
-
-
-def terminal(school: School):
-    interface = """
-  ╔═══════════════════════════════════════════════════════════╗
-  ║                                                           ║
-  ║            ✨ WELCOME TO THE SCHOOL SYSTEM! ✨            ║
-  ║                                                           ║
-  ║            Please select *ONE* option to proceed:         ║
-  ║                                                           ║
-  ╠═══════════════════════════════════════════════════════════╣
-  ║   1. Insert Person                                        ║
-  ║   2. Insert Class                                         ║
-  ║   3. Insert Subject                                       ║
-  ║   4. Assign Person to Class                               ║
-  ║   5. Assign Subject to Class                              ║
-  ║   6. List Persons                                         ║
-  ║   7. List Classes                                         ║
-  ║   8. List Subjects                                        ║
-  ║   9. Filter Students by Class                             ║
-  ║   10. Filter Teachers by Class                            ║
-  ║                                                           ║
-  ╠═══════════════════════════════════════════════════════════╣
-  ║           Use the number keys to select an option!        ║
-  ╚═══════════════════════════════════════════════════════════╝
-  """
-    print(interface)
-    choice = int(input("Insert the option: "))
-    proceed = evalOperation(school , choice)
-    
-    # Recursively call the terminal..
-    while proceed:
-        terminal(school)
-    
-    return
 
 
 # Entry point to the application
 if __name__ == "__main__":
+  
+    app.run(debug=True)
 
-    school = School("  Instituto Federal de Ciência e Tecnologia de Mato Grosso do Sul  ")
-    print(school)
-    terminal(school)
-            
+

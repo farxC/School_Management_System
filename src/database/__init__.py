@@ -1,1 +1,0 @@
-print(f"Doing operation in database..")

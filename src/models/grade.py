@@ -1,4 +1,3 @@
-from src.database.insert import insert
 from typing import Protocol
 
 # Class for typing Classes

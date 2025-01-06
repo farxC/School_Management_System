@@ -1,6 +1,6 @@
 from typing import Literal
-from src.database.insert import insert
 from typing import Protocol
+from src.models import school
 import uuid
 """
     Usuários:

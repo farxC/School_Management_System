@@ -3,8 +3,6 @@ from random import randint
 from src.models.person import Student, Teacher
 from src.models.subject import Subject, SubjectAssignClass
 from src.models.grade import Class, PersonAssignClass
-from src.database.fetch import fetchData
-from src.database.insert import insert
 from typing import Literal
 
 ALLOWED_ROLES = {"teacher", "student"}
@@ -29,7 +27,7 @@ class School:
     ]
 
     def __save(self, object: Class, table: str):
-        q = insert(object, table)
+        q = ''
         print(q)
 
     def createPerson(self):
@@ -121,9 +119,6 @@ class School:
     def search(self, key: __FETCH_KEYS_OPTIONS, classID=False):
         if classID:
             val = input("Please insert the class ID: ").upper()
-            fetchData(key, val)
-        else:
-            fetchData(key)
 
     def __str__(self):
         return f"{self.name}"
