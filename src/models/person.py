@@ -16,7 +16,7 @@ import uuid
 Allowed_Roles = Literal["teacher", "student"]
 Sex_Options = Literal["masc", "fem"]
 
-# Defines the interface (shape) of the Person attributes
+# Class for typing Person, defining the "shape".
 class PersonProtocol(Protocol):
     name: str
     role: Allowed_Roles
@@ -38,13 +38,6 @@ class Person:
             self.birth_date = birth_date
             self.telephone = telephone
             self.email = email
-            # Insert as default to the database.
-            self.__save()
-            
-        
-        def __save(self):
-           q = insert(self,"persons")
-           print(q)
         
 class Teacher(Person):
     def __init__(self, name: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options, birth_date: str, telephone: str, email: str, subject_id = None):

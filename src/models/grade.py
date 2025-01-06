@@ -1,6 +1,7 @@
 from src.database.insert import insert
 from typing import Protocol
 
+# Class for typing Classes
 class ClassProtocol(Protocol):
     name: str
     id: str
@@ -11,7 +12,6 @@ class Class:
         self.name = name
         self.id = id
         self.year = year
-  
        
     def __int__(self):
       return self.id

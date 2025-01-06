@@ -54,6 +54,11 @@ class School:
             )
 
             related_table = tables[role]
+            
+            # Saving into the table "persons"
+            self.__save(person, "persons")
+            
+            # Saving person to its related role table
             self.__save(person, related_table)
 
             return person
@@ -85,7 +90,7 @@ class School:
 
     def assignPersonClass(self):
 
-        # Table for mapping each role and related table.
+        # Table for mapping each role and related role table.
         tables = {"teacher": "classTeachers", "student": "classStudents"}
 
         role = input("Teacher/Student? ").lower()
@@ -97,7 +102,7 @@ class School:
             
             related_table = tables[role]
             
-            # Saving person to its related table
+            # Saving person to its related role table
             self.__save(assignedPerson, related_table)
             
             return assignedPerson

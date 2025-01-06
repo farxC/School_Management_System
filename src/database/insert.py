@@ -29,7 +29,7 @@ def insert(object, table: str):
                         "INSERT INTO classes(id, name, year) VALUES (?, ?, ?)",
                         lambda obj: (obj["id"], obj["name"], obj["year"])],
                 "classSubjects":[
-                        "INSERT INTO classSubjects(class_id, subject_id) VALUES (?, ?, ?)",
+                        "INSERT INTO classSubjects(class_id, subject_id) VALUES (?, ?)",
                         lambda obj: (obj["class_id"], obj["subject_id"])        
                 ],
                 "classTeachers": [
