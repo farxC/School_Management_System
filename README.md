@@ -10,3 +10,8 @@ My intention was only to learn more about the OOP paradigm. It was funny develop
 
 
 ## HOW TO RUN:
+At first, clone the project, in terminal:
+    git clone https://github.com/farxc/School_Management_System  
+
+So run:
+python3 main.py

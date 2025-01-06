@@ -18,9 +18,10 @@ from src.models.school import School
 
 
 def isOption(choice):
-    if   0 < choice < 11:
-        return True
-    return False
+    if   0 < choice > 10:
+        return False
+    
+    return True
     
 
 def evalOperation(school: School, choice: int):

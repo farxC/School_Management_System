@@ -38,7 +38,6 @@ class Person:
             self.birth_date = birth_date
             self.telephone = telephone
             self.email = email
-            # TO DO -> CREATE A DEFAULT METHOD IN ALL CLASSES USED IN THIS PROJECT. IS IT POSSIBLE?
             # Insert as default to the database.
             self.__save()
             
@@ -51,18 +50,9 @@ class Teacher(Person):
     def __init__(self, name: str, role: Allowed_Roles, address: str, id: str, sex: Sex_Options, birth_date: str, telephone: str, email: str, subject_id = None):
         super().__init__(name, role, address, id, sex, birth_date, telephone, email)
         self.subject_id = subject_id
-        self.__save_teacher()
-        
-        
-    def __save_teacher(self): 
-       q =insert(self, "teachers")
-       print(q)
+ 
 
 class Student(Person):
     def __init__(self,name,role, address, id, sex, birth_date, telephone, email , class_id = None):
         super().__init__(name,role,address, id, sex, birth_date, telephone, email)
         self.class_id = class_id
-        self.__save_student()
-       
-    def __save_student(self):
-      q = insert(self, "students")

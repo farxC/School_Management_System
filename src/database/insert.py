@@ -3,10 +3,10 @@ from src.database.cursor import cursor
 from sqlite3 import Error
 
 
-def insert(obj, table: str):
+def insert(object, table: str):
         # Here is a object that each key represents an entity on database and each value
         # represents an array with the SQL statement and the values to insert.
-        attributes = vars(obj)
+        attributes = vars(object)
         
         tables = {
                 "persons":[

@@ -14,18 +14,9 @@ class Subject:
         self.id = id
         self.workload = str(workload)
         self.teacher_id = teacher_id
-        self.__save()
-
-    def __save(self):
-        q = insert(self,"subjects")
-        print(q)
+    
 
 class SubjectAssignClass:
     def __init__(self, subject_id, class_id):
         self.subject_id = subject_id
         self.class_id = class_id
-        self.__save()
-        
-    def __save(self):
-        query = insert(self, "classSubjects")
-        print(query)
